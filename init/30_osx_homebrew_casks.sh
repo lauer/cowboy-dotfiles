@@ -24,6 +24,18 @@ casks=(
   hipchat
   macvim
   sourcetree
+
+  # Quick Look plugins
+  betterzipql
+  qlcolorcode
+  qlmarkdown
+  qlprettypatch
+  qlstephen
+  quicklook-csv
+  quicklook-json
+  quicknfo
+  suspicious-package
+  webpquicklook
 )
 
 # Install Homebrew casks.

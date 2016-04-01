@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 GITHUB_USER=jesperronn
+GITHUB_PROJECT=cowboy-dotfiles
 [[ "$1" == "source" ]] || \
 
 echo 'Dotfiles - "Cowboy" Ben Alman - http://benalman.com/'
@@ -10,6 +11,7 @@ Usage: $(basename "$0")
 
 See the README for documentation.
 https://github.com/jesperronn/cowboy-dotfiles
+https://github.com/cowboy/dotfiles
 
 Copyright (c) 2014 "Cowboy" Ben Alman
 Licensed under the MIT license.
@@ -286,7 +288,7 @@ if [[ ! -d $DOTFILES ]]; then
   new_dotfiles_install=1
   prompt_delay=15
   e_header "Downloading dotfiles"
-  git clone --recursive git://github.com/${GITHUB_USER}/dotfiles.git $DOTFILES
+  git clone --recursive git://github.com/${GITHUB_USER:-cowboy}/${GITHUB_PROJECT:-dotfiles}.git $DOTFILES
   cd $DOTFILES
 elif [[ "$1" != "restart" ]]; then
   # Make sure we have the latest files.
