@@ -1,8 +1,8 @@
 [user]
-  name    = Jesper Rønn-Jensen
+  name    = Jesper Grann Laursen
   email   = EMAIL
 [github]
-  user  = jesperronn
+  user  = lauer
 [core]
   autocrlf     = input
   whitespace   = fix,space-before-tab,tab-in-indent,trailing-space

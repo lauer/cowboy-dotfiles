@@ -1,9 +1,3 @@
-alias cdv='cd ~/src/cancerventetid'
-alias cdn='cd ~/src/nine/pplus/plus-reporter'
-alias cdc='cd ~/src/nine/csc/all_dev'
-alias cds='cd ~/src/nine/skat/Bogfoeringsguiden'
-alias cdn='cd ~/src/nine'
-alias cdk='cd ~/src/karnov'
 
 #alias kk="K=$(cdk && pwd);echo $K;"
 # function _kgProjects(){
@@ -24,9 +18,3 @@ export OCI_DIR="$(brew --prefix)/lib"
 # see http://www.rubydoc.info/github/kubo/ruby-oci8/master/file/docs/install-on-osx.md
 # AND when downloading manually the zip files into `~/Downloads`:
 # `export HOMEBREW_CACHE=$HOME/Downloads/``
-
-
-
- #bintray
- export BINTRAY_USERNAME=jesperronn
- export BINTRAY_KEY=
