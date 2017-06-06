@@ -39,6 +39,7 @@
 # OS generated files #
 ######################
 .DS_Store
+*~
 
 # Thumbnails
 ._*
@@ -62,3 +63,9 @@ node_modules
 .swo
 .*.swp
 .*.swo
+
+# IntelliJ - Redmine
+.idea
+
+# Ruby / Rails projects
+.env
