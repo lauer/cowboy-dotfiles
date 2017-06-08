@@ -2,15 +2,23 @@
 . ~/.config/fish/aliases.fish
 
 ### PATH ###
-set default_path /usr/bin /usr/sbin /bin /sbin
-set path_x11 /usr/x11/bin/
-set homebrew /usr/local/bin /usr/local/sbin
-set privat ~/bin ~/.composer/vendor/bin
+set -e PATH
+set -gx PATH /usr/bin /usr/sbin /bin /sbin
 
-set -gx PATH $privat $homebrew $default_path $path_x11
+# Dotfiles
+append-to-path ~/.dotfiles/bin
+# Homebrew
+append-to-path /usr/local/bin /usr/local/sbin
+# Local
+append-to-path ~/bin
+append-to-path ~/.composer/vendor/bin
+# x11
+append-to-path /usr/x11/bin/
 
-# rvm default
+# rbenv
+status --is-interactive; and source (rbenv init -|psub)
 
+# Iterm2 integration
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 # dotfiles
