@@ -1,5 +1,16 @@
 function fish_prompt --description 'Write out the prompt'
 	set laststatus $status
+
+                function is_osx
+                        contains 'Darwin' (uname)
+                end
+                # Simpel check if remote host - if we are on a mac :)
+                if not set -q __fish_prompt_hostname
+                        if not is_osx
+                                set -g __fish_prompt_hostname '@'(hostname|cut -d . -f 1)
+                        end
+                end
+
     function _git_branch_name
         echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
     end
@@ -40,7 +51,8 @@ function fish_prompt --description 'Write out the prompt'
     (set_color -o white)               \
     '❰'                                \
     (set_color green)                  \
-    $USER                              \
+    $USER															 \
+                $__fish_prompt_hostname            \
     (set_color white)                  \
     '❙'                                \
     (set_color yellow)                 \
