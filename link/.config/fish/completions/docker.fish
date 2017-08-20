@@ -1,0 +1,1 @@
+/Users/jla/.config/fisherman/docker-completion/completions/docker.fish

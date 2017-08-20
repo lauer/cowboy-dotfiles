@@ -1,0 +1,1 @@
+/Users/jla/.config/fisherman/getopts/getopts.fish

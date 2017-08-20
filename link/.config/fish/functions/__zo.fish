@@ -1,0 +1,1 @@
+/Users/jla/.config/fisherman/z/functions/__zo.fish
