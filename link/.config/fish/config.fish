@@ -6,9 +6,9 @@ set -e PATH
 set -gx PATH /usr/bin /usr/sbin /bin /sbin
 
 # Dotfiles
-append-to-path ~/.dotfiles/bin
+prepend-to-path ~/.dotfiles/bin
 # Homebrew
-append-to-path /usr/local/bin /usr/local/sbin
+prepend-to-path /usr/local/bin /usr/local/sbin
 # Local
 append-to-path ~/bin
 append-to-path ~/.composer/vendor/bin
