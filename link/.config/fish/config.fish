@@ -10,10 +10,10 @@ prepend-to-path ~/.dotfiles/bin
 # Homebrew
 prepend-to-path /usr/local/bin /usr/local/sbin
 # Local
-append-to-path ~/bin
-append-to-path ~/.composer/vendor/bin
+prepend-to-path ~/bin
+# prepend-to-path ~/.composer/vendor/bin
 # x11
-append-to-path /usr/x11/bin/
+# prepend-to-path /usr/x11/bin/
 
 # rbenv
 status --is-interactive; and type -q rbenv; and source (rbenv init -|psub)
