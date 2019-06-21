@@ -1,0 +1,11 @@
+#!/bin/sh
+# Alternative is maybe `docker system prune `
+# And if all needs to be deleted - add the -a
+
+dangling=$(docker volume ls -qf dangling=true)
+if [[ -z $dangling ]]; then
+  echo "Nothing to do"
+  exit 0
+fi
+
+docker volume rm $dangling
