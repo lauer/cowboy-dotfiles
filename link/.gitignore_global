@@ -66,6 +66,12 @@ node_modules
 
 # IntelliJ - Redmine
 .idea
+# VisualCode
+.vscode
+.settings
+.project
+.classpath
+
 
 # Ruby / Rails projects
 .env
