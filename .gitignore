@@ -20,5 +20,13 @@
 /link/.config/fish/fish_history
 /link/.config/fish/fishd.*
 
+# Ignore github config - Setup with "gh auth login"
+/link/.config/gh/hosts.yml
+
+# ignore joplin
+/link/.config/joplin-desktop
+
+
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*
+

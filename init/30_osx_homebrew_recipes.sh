@@ -22,7 +22,6 @@ recipes=(
   bash-completion
   cmake
   curl
-  heroku-toolbelt
   hub
   nvm
   postgresql
@@ -31,6 +30,8 @@ recipes=(
   shellcheck
   spark
   sqlite
+  gh
+  rbenv
 )
 
 brew_install_recipes
