@@ -3,3 +3,4 @@
 
 # Install latest stable Node.js, set as default, install global npm modules.
 # nave_install stable
+brew install npm yarn 

@@ -22,16 +22,21 @@ recipes=(
   bash-completion
   cmake
   curl
-  hub
   nvm
   postgresql
-  python
   python3
   shellcheck
-  spark
   sqlite
   gh
   rbenv
+  jq
+  k9s
+  kubernetes-cli
+  mtr
+  ncurses
+  itermocil
+  gh
+  fish
 )
 
 brew_install_recipes

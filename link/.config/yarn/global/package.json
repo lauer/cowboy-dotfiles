@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@eslint/create-config": "^0.1.2",
+    "create-electron-app": "^1.0.0",
+    "create-wdio": "^7.1.1"
+  }
+}
