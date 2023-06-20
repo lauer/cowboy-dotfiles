@@ -1,76 +1,31 @@
 function fish_prompt --description 'Write out the prompt'
-	set laststatus $status
+    set -l last_pipestatus $pipestatus
+    set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
+    set -l normal (set_color normal)
+    set -q fish_color_status
+    or set -g fish_color_status --background=red white
 
-                function is_osx
-                        contains 'Darwin' (uname)
-                end
-                # Simpel check if remote host - if we are on a mac :)
-                if not set -q __fish_prompt_hostname
-                        if not is_osx
-                                set -g __fish_prompt_hostname '@'(hostname|cut -d . -f 1)
-                        end
-                end
-
-    function _git_branch_name
-        echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
-    end
-    function _is_git_dirty
-        echo (git status -s --ignore-submodules=dirty ^/dev/null)
-    end
-    if [ (_git_branch_name) ]
-        set -l git_branch (set_color -o blue)(_git_branch_name)
-        if [ (_is_git_dirty) ]
-            for i in (git branch -qv --no-color | string match -r '\*' | cut -d' ' -f4- | cut -d] -f1 | tr , \n)\
-                (git status --porcelain | cut -c 1-2 | uniq)
-                switch $i
-                    case "*[ahead *"
-                        set git_status "$git_status"(set_color red)⬆
-                    case "*behind *"
-                        set git_status "$git_status"(set_color red)⬇
-                    case "."
-                        set git_status "$git_status"(set_color green)✚
-                    case " D"
-                        set git_status "$git_status"(set_color red)✖
-                    case "*M*"
-                        set git_status "$git_status"(set_color green)✱
-                    case "*R*"
-                        set git_status "$git_status"(set_color purple)➜
-                    case "*U*"
-                        set git_status "$git_status"(set_color brown)═
-                    case "??"
-                        set git_status "$git_status"(set_color red)≠
-                end
-            end
-        else
-            set git_status (set_color green):
+    # Color the prompt differently when we're root
+    set -l color_cwd $fish_color_cwd
+    set -l suffix '>'
+    if functions -q fish_is_root_user; and fish_is_root_user
+        if set -q fish_color_cwd_root
+            set color_cwd $fish_color_cwd_root
         end
-        set git_info "(git$git_status$git_branch"(set_color white)")"
+        set suffix '#'
     end
-    set_color -b black
-    printf '%s%s%s%s%s%s%s%s%s%s%s%s%s'\
-    (set_color -o white)               \
-    '❰'                                \
-    (set_color green)                  \
-    $USER															 \
-                $__fish_prompt_hostname            \
-    (set_color white)                  \
-    '❙'                                \
-    (set_color yellow)                 \
-    (echo $PWD | sed -e "s|^$HOME|~|") \
-    (set_color white)                  \
-    $git_info                          \
-    (set_color white)                  \
-    '❱'                                \
-    (set_color white)
-    if test $laststatus -eq 0
-        printf "%s✔%s≻%s "  \
-        (set_color -o green)\
-        (set_color white)   \
-        (set_color normal)
-    else
-        printf "%s✘%s≻%s "  \
-        (set_color -o red)  \
-        (set_color white)   \
-        (set_color normal)
+
+    # Write pipestatus
+    # If the status was carried over (e.g. after `set`), don't bold it.
+    set -l bold_flag --bold
+    set -q __fish_prompt_status_generation; or set -g __fish_prompt_status_generation $status_generation
+    if test $__fish_prompt_status_generation = $status_generation
+        set bold_flag
     end
+    set __fish_prompt_status_generation $status_generation
+    set -l status_color (set_color $fish_color_status)
+    set -l statusb_color (set_color $bold_flag $fish_color_status)
+    set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
+
+    echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal (fish_vcs_prompt) $normal " "$prompt_status $suffix " "
 end

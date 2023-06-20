@@ -1,5 +1,6 @@
 # Set aliases
 . ~/.config/fish/aliases.fish
+. ~/.config/fish/kubectl_aliases.fish
 
 ### PATH ###
 set -e PATH
@@ -17,6 +18,8 @@ prepend-to-path ~/bin
 
 prepend-to-path /opt/homebrew/bin/
 
+append-to-path /opt/homebrew/opt/node@16/bin
+
 # rbenv
 status --is-interactive; and type -q rbenv; and source (rbenv init -|psub)
 
@@ -29,3 +32,9 @@ set -x DOTFILES ~/.dotfiles
 # Set locale
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
+
+starship init fish | source
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /Users/jgl/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish ]; and . /Users/jgl/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish
