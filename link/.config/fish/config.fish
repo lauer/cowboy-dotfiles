@@ -16,7 +16,12 @@ prepend-to-path ~/bin
 # x11
 # prepend-to-path /usr/x11/bin/
 
+# Use on ubuntu
+append-to-path /snap/bin 
+
 prepend-to-path /opt/homebrew/bin/
+
+append-to-path /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 
 append-to-path /opt/homebrew/opt/node@16/bin
 
@@ -35,6 +40,8 @@ set -gx LANG en_US.UTF-8
 
 starship init fish | source
 
+
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [ -f /Users/jgl/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish ]; and . /Users/jgl/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish
+

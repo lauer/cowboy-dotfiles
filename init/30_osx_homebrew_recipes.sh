@@ -32,11 +32,16 @@ recipes=(
   jq
   k9s
   kubernetes-cli
+  helm
+  openshift-cli
   mtr
   ncurses
   itermocil
-  gh
   fish
+  starship
+  mas
+  go
+
 )
 
 brew_install_recipes
@@ -63,3 +68,7 @@ fi
 #   sudo chsh -s "$binroot/bash" "$USER" >/dev/null 2>&1
 #   e_arrow "Please exit and restart all your shells."
 # fi
+
+# install nerd-font - https://www.nerdfonts.com/font-downloads
+brew tap homebrew/cask-fonts && brew install --cask font-ubuntu-mono-nerd-font
+# remember to select the font en iTerm2 under Profile -> Text (size 13)
