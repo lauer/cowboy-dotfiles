@@ -6,6 +6,8 @@
 set -e PATH
 set -gx PATH /usr/bin /usr/sbin /bin /sbin
 
+set -gx DISABLE_SPRING true
+
 # Dotfiles
 prepend-to-path ~/.dotfiles/bin
 # Homebrew
@@ -19,11 +21,12 @@ prepend-to-path ~/bin
 # Use on ubuntu
 append-to-path /snap/bin 
 
-prepend-to-path /opt/homebrew/bin/
+append-to-path /opt/homebrew/opt/node@22/bin
+
+append-to-path /opt/homebrew/bin/
 
 append-to-path /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 
-append-to-path /opt/homebrew/opt/node@16/bin
 
 # rbenv
 status --is-interactive; and type -q rbenv; and source (rbenv init -|psub)
@@ -38,10 +41,13 @@ set -x DOTFILES ~/.dotfiles
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
 
+# Setup k9s configfir
+set -gx K9S_CONFIG_DIR {$HOME}/.config/k9s
+
 starship init fish | source
 
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[ -f /Users/jgl/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish ]; and . /Users/jgl/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish
+[ -f {$HOME}/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish ]; and . {$HOME}/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish
 
