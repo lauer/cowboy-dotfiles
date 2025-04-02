@@ -41,7 +41,9 @@ recipes=(
   starship
   mas
   go
-
+  sops
+  age
+  1password-cli
 )
 
 brew_install_recipes
