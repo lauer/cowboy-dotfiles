@@ -26,6 +26,8 @@
 # ignore joplin
 /link/.config/joplin-desktop
 
+# Dont share filezilla configs
+/link/.config/filezilla
 
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*

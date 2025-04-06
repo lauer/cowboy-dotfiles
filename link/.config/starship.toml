@@ -17,3 +17,6 @@ disabled = false
 detect_files = ['helmfile.yaml', 'values.yaml']
 detect_folders = ['k8', 'k8s']
 format = 'on [⛵ ($cluster in ) \($namespace\)](dimmed blue) '
+
+[battery]
+disabled = true

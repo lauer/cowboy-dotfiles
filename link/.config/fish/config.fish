@@ -6,12 +6,18 @@
 set -e PATH
 set -gx PATH /usr/bin /usr/sbin /bin /sbin
 
+<<<<<<< HEAD
 set -gx DISABLE_SPRING true
+=======
+>>>>>>> 0177737 (save content from macmini)
 
 # Dotfiles
 prepend-to-path ~/.dotfiles/bin
 # Homebrew
 prepend-to-path /usr/local/bin /usr/local/sbin
+test -e /opt/homebrew/bin && prepend-to-path /opt/homebrew/bin
+prepend-to-path /opt/homebrew/opt/ruby/bin
+
 # Local
 prepend-to-path ~/bin
 # prepend-to-path ~/.composer/vendor/bin
@@ -27,6 +33,7 @@ append-to-path /opt/homebrew/bin/
 
 append-to-path /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 
+prepend-to-path /opt/homebrew/opt/gnu-tar/libexec/gnubin
 
 # rbenv
 status --is-interactive; and type -q rbenv; and source (rbenv init -|psub)
@@ -51,3 +58,6 @@ starship init fish | source
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [ -f {$HOME}/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish ]; and . {$HOME}/dev/apps/tmp/test-electron-forge-release/node_modules/tabtab/.completions/electron-forge.fish
 
+# Ensure to use own installed ruby libraries
+set -gx LDFLAGS "-L/opt/homebrew/opt/ruby/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/ruby/include"
