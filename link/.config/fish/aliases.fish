@@ -13,4 +13,5 @@ alias reload 'source ~/.config/fish/config.fish'
 
 abbr -a g git
 abbr -a be bundle exec
+abbr -a t task
 
