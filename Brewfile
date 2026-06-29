@@ -2,6 +2,7 @@ brew "ansible"
 brew "bash"
 brew "git"
 brew "git-extras"
+brew "git-cliff"
 brew "htop-osx"
 brew "hub"
 brew "lesspipe"
@@ -14,6 +15,7 @@ brew "cmake"
 brew "curl"
 brew "nvm"
 brew "postgresql"
+brew "libpq"
 # Python version management
 brew "pyenv"
 # Interpreted, interactive, object-oriented programming language
@@ -37,6 +39,7 @@ brew "kubernetes-cli"
 brew "helm"
 brew "helmfile"
 brew "openshift-cli"
+brew "kubetail"
 brew "mtr"
 brew "ncurses"
 brew "fish"
@@ -55,6 +58,8 @@ brew "node"
 brew "npm"
 brew "pnpm"
 
+# Gnu alternatives
+brew "gsed"
 
 # Command-line interface for 1Password
 cask "1password-cli"
